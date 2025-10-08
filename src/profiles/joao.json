@@ -1,0 +1,27 @@
+{
+  "nome": "Joao",
+  "idade": 24,
+  "formacao": ["Licenciatura em Engenharia Informática", "Mestrado em Análise Inteligente de Dados"],
+  "experiencia": [
+    {
+      "empresa": "OneSource",
+      "cargo": "Web Developer",
+      "duracao": "2022-2023",
+      "responsabilidades": [
+        "Backend",
+        "Frontend",
+        "PHP",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Laravel"
+      ]
+    }
+  ],
+  "habilidades": ["Python", "Análise de dados", "Machine Learning / Deep Learning", "PowerBI", "SQL"],
+  "objetivos": "Crescer na área de ciência e análise de dados",
+  "hobbies": ["Tecnologia", "Futebol", "Ouvir música"]
+}
+
+
+ 

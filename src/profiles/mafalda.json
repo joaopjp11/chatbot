@@ -1,0 +1,21 @@
+{
+  "nome": "Mafalda",
+  "idade": 27,
+  "formacao": "Mestrado em Engenharia Biomédica",
+  "experiencia": [
+    {
+      "empresa": "MCMediacal",
+      "cargo": "Especialisat de Aplicação",
+      "duracao": "2023",
+      "responsabilidades": [
+        "Regulamentação de Equipamentos no INFARMED",
+        "Comercialização de Equipamentos"
+      ]
+    }
+  ],
+  "habilidades": ["Python", "Regulamentação", "Gestão de projetos"],
+  "objetivos": "Crescer na área de tecnologia e engenharia"
+}
+
+
+ 

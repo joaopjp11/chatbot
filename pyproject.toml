@@ -1,0 +1,24 @@
+[project]
+name = "chatbot-project"
+version = "0.1.0"
+description = "Chatbot that works as a digital twin which is able to do interviews for us."
+authors = [
+    {name = "Mafalda, João, Ruben, Luís."}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["fastapi (>=0.118.0,<0.119.0)", "pydantic (>=2.11.10,<3.0.0)", "uvicorn (>=0.37.0,<0.38.0)", "python-jose[cryptography] (>=3.5.0,<4.0.0)", "passlib[bcrypt] (>=1.7.4,<2.0.0)", "python-multipart (>=0.0.20,<0.0.21)", "pydantic-settings (>=2.11.0,<3.0.0)"]
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.4.2,<9.0.0"
+black = ">=25.9.0,<26.0.0"
+flake8 = ">=7.3.0,<8.0.0"
+uvicorn = {extras = ["standard"], version = "^0.37.0"}
+
+[tool.poetry]
+packages = []  # <- This tells Poetry not to try to install your project as a package
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
