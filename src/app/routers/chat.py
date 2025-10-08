@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from src.chatbot import DigitalTwinChatbot
-from src.llm_interface import query_ollama
+from src.app.services.chatbot import DigitalTwinChatbot
+from src.app.utils.llm_interface import query_ollama
 from src.app.utils.load_profiles import load_profiles
 
 router = APIRouter(prefix="/chat", tags=["Chat"])

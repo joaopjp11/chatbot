@@ -1,4 +1,4 @@
-from src.llm_interface import query_ollama
+from src.app.utils.llm_interface import query_ollama
 from src.app.models.profile import ProfileBase
 
 class DigitalTwinChatbot:
