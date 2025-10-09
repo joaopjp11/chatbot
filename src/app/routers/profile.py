@@ -21,7 +21,8 @@ def get_profile(nome: str):
     key = nome.lower()
     if key not in profiles:
         raise HTTPException(status_code=404, detail=f"Perfil '{nome}' não encontrado.")
-    return profiles[key]
+    # Return API schema built from internal model to keep separation
+    return ProfileOut(**profiles[key].model_dump())
 
 @router.post("/", status_code=status.HTTP_201_CREATED, dependencies=[Depends(verify_token)])
 def create_profile(profile: ProfileCreate):
