@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, status
 from typing import List, Dict
-from src.app.models.profile import ProfileBase, ProfileCreate, ProfileUpdate
+from src.app.models.profile import ProfileBase
+from src.app.schemas import ProfileCreate, ProfileUpdate, ProfileOut
 from src.app.utils.load_profiles import load_profiles
 
 router = APIRouter(prefix="/profiles", tags=["Profiles"])
@@ -13,13 +14,14 @@ def list_profiles():
     """Lista todos os perfis disponíveis."""
     return list(profiles.keys())
 
-@router.get("/{nome}", response_model=ProfileBase)
+@router.get("/{nome}", response_model=ProfileOut)
 def get_profile(nome: str):
     """Devolve um perfil específico."""
     key = nome.lower()
     if key not in profiles:
         raise HTTPException(status_code=404, detail=f"Perfil '{nome}' não encontrado.")
-    return profiles[key]
+    # Return API schema built from internal model to keep separation
+    return ProfileOut(**profiles[key].model_dump())
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
 def create_profile(profile: ProfileCreate):
@@ -27,7 +29,8 @@ def create_profile(profile: ProfileCreate):
     key = profile.nome.lower()
     if key in profiles:
         raise HTTPException(status_code=400, detail="Perfil já existe.")
-    profiles[key] = profile
+    # Convert API input schema into internal domain model
+    profiles[key] = ProfileBase(**profile.model_dump())
     return {"msg": f"Perfil '{profile.nome}' criado com sucesso."}
 
 @router.put("/{nome}")
