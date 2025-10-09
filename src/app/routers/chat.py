@@ -2,12 +2,11 @@ from fastapi import APIRouter, HTTPException
 from src.app.services.chatbot import DigitalTwinChatbot
 from src.app.utils.llm_interface import query_ollama
 from src.app.utils.load_profiles import load_profiles
-from src.app.schemas import ChatRequest, ChatResponse
+from src.app.schemas.chat import ChatRequest, ChatResponse
 
 router = APIRouter(prefix="/chat", tags=["Chat"])
 
 profiles = load_profiles()
-
 
 @router.post("/", response_model=ChatResponse)
 def chat_with_twin(req: ChatRequest):

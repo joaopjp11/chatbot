@@ -45,8 +45,28 @@ def get_chat_page():
                 border-radius: 5px;
                 background-color: #eef;
                 border: 1px solid #99c;
-                white-space: pre-wrap; /* mantém quebras de linha */
+                white-space: pre-wrap;
                 font-size: 16px;
+                min-height: 50px;
+            }
+            /* Spinner de loading */
+            .spinner {
+                border: 4px solid #f3f3f3;
+                border-top: 4px solid #4CAF50;
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                animation: spin 1s linear infinite;
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 10px;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            #loading {
+                display: none;
             }
         </style>
     </head>
@@ -58,7 +78,8 @@ def get_chat_page():
         <label for="pergunta">Pergunta:</label>
         <textarea id="pergunta" placeholder="Escreve a tua pergunta aqui..." rows="4"></textarea>
 
-        <button onclick="enviarPergunta()">Enviar</button>
+        <button id="enviarBtn" onclick="enviarPergunta()">Enviar</button>
+        <span id="loading" class="spinner"></span>
 
         <h3>Resposta:</h3>
         <div id="resposta">A resposta aparecerá aqui...</div>
@@ -67,28 +88,44 @@ def get_chat_page():
             async function enviarPergunta() {
                 const pessoa = document.getElementById('pessoa').value;
                 const pergunta = document.getElementById('pergunta').value;
+                const respostaDiv = document.getElementById('resposta');
+                const loading = document.getElementById('loading');
+                const enviarBtn = document.getElementById('enviarBtn');
 
-                const response = await fetch('/chat/', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ pessoa: pessoa, pergunta: pergunta })
-                });
-
-                const data = await response.json();
-
-                // Transformar JSON em texto legível
-                let text = '';
-                if (data.resposta) {
-                    text = data.resposta;
-                } else {
-                    text = JSON.stringify(data, null, 2);
+                if (!pessoa || !pergunta) {
+                    respostaDiv.textContent = "Por favor preenche todos os campos.";
+                    return;
                 }
 
-                document.getElementById('resposta').textContent = text;
+                // Mostra o loading e desativa o botão
+                loading.style.display = "inline-block";
+                enviarBtn.disabled = true;
+                respostaDiv.textContent = "";
+
+                try {
+                    const response = await fetch('/chat/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ pessoa: pessoa, pergunta: pergunta })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.resposta) {
+                        respostaDiv.textContent = data.resposta;
+                    } else {
+                        respostaDiv.textContent = JSON.stringify(data, null, 2);
+                    }
+                } catch (error) {
+                    respostaDiv.textContent = "Erro ao enviar a pergunta.";
+                } finally {
+                    // Esconde o loading e reativa o botão
+                    loading.style.display = "none";
+                    enviarBtn.disabled = false;
+                }
             }
         </script>
     </body>
     </html>
     """
     return HTMLResponse(content=html_content)
-
