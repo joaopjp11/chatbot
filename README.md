@@ -81,5 +81,3 @@ poetry run uvicorn src.api:app --reload
 ## Aceder ao Chat na Web
 http://localhost:8000/web
 
-## Aceder ao /docs
-http://localhost:8000/docs
