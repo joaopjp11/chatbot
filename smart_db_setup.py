@@ -122,7 +122,7 @@ def create_user_and_database():
 def check_tables_exist():
     """Check if tables already exist in the database"""
     try:
-        from app.database.db import engine
+        from src.app.database.db import engine
         from sqlalchemy import text
         
         with engine.connect() as connection:
@@ -144,8 +144,8 @@ def create_tables():
     print("📋 Setting up database tables...")
     
     try:
-        from app.database.db import engine, Base
-        from app.models.profile import Profile  # Import to register the model
+        from src.app.database.db import engine, Base
+        from src.app.models.profile import Profile  # Import to register the model
         from sqlalchemy import text
         
         print("   • Importing models...")
@@ -208,8 +208,8 @@ def create_tables():
 def check_profiles_exist():
     """Check if profiles are already loaded in the database"""
     try:
-        from app.database.db import SessionLocal
-        from app.models.profile import Profile
+        from src.app.database.db import SessionLocal
+        from src.app.models.profile import Profile
         
         db = SessionLocal()
         profile_count = db.query(Profile).count()
@@ -225,8 +225,8 @@ def load_profiles():
     print("👥 Loading profile data...")
     
     try:
-        from app.database.db import SessionLocal
-        from app.models.profile import Profile
+        from src.app.database.db import SessionLocal
+        from src.app.models.profile import Profile
         
         db = SessionLocal()
         
@@ -287,8 +287,8 @@ def show_database_status():
     print("\n📊 Database Status:")
     
     try:
-        from app.database.db import SessionLocal, engine
-        from app.models.profile import Profile
+        from src.app.database.db import SessionLocal, engine
+        from src.app.models.profile import Profile
         
         # Show connection info
         print(f"   🔗 Connection: {DB_USER}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
