@@ -42,18 +42,43 @@ Chatbot em Python que simula um “digital twin” de uma pessoa com base nos da
 # Requisitos
 - **Python** 3.10+
 - **Poetry**
+- **PostgreSQL** (servidor local ou remoto)
 
 ## Instalar dependências com o Poetry
 ```bash
 poetry install
 ```
-- **Ollama** (https://ollama.com)
+
+## 🗄️ Configurar Base de Dados PostgreSQL
+
+**Antes de executar o projeto, é necessário configurar a base de dados:**
+
+1. **Instalar PostgreSQL** (se ainda não tiver)
+2. **Configurar senha do admin** no ficheiro `smart_db_setup.py` (linha 28)
+3. **Executar o setup da base de dados:**
+
+```bash
+python smart_db_setup.py
+```
+
+Este script irá automaticamente:
+- ✅ Criar utilizador PostgreSQL (`chatbot_user`)
+- ✅ Criar base de dados (`digital_twin`) 
+- ✅ Criar tabelas necessárias
+- ✅ Carregar perfis dos ficheiros JSON
+
+**Nota:** Pode executar este comando várias vezes com segurança. Se a base de dados já existir, apenas verificará o estado.
+
 ## 🦙 Instalar o modelo **Llama 3.2 (3B)**
 
 ```bash
 ollama pull llama3.2:3b
 ```
+
 ## Correr Projeto
+
+**Após configurar a base de dados:**
+
 ```bash
 poetry run uvicorn src.api:app --reload
 ```
