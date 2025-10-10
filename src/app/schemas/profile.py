@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field, model_validator
 class Experience(BaseModel):
     empresa: str
     cargo: Optional[str] = None
-    anos: Optional[int] = None
+    duracao: Optional[str] = None
 
 
 class ProfileBaseSchema(BaseModel):

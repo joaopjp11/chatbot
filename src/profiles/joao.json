@@ -1,7 +1,7 @@
 {
   "nome": "Joao",
   "idade": 24,
-  "formacao": ["Licenciatura em Engenharia Informática", "Mestrado em Análise Inteligente de Dados"],
+  "formacao": "Mestrado em Engenharia Informatica com especializacao em Analise Inteligente de Dados",
   "experiencia": [
     {
       "empresa": "OneSource",
@@ -18,9 +18,9 @@
       ]
     }
   ],
-  "habilidades": ["Python", "Análise de dados", "Machine Learning / Deep Learning", "PowerBI", "SQL"],
-  "objetivos": "Crescer na área de ciência e análise de dados",
-  "hobbies": ["Tecnologia", "Futebol", "Ouvir música"]
+  "habilidades": ["Python", "Analise de dados", "Machine Learning / Deep Learning", "PowerBI", "SQL"],
+  "objetivos": "Crescer na area de ciencia e analise de dados",
+  "hobbies": ["Tecnologia", "Futebol", "Ouvir musica"]
 }
 
 

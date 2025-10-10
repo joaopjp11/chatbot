@@ -1,5 +1,5 @@
 from src.app.utils.llm_interface import query_ollama
-from src.app.models.profile import ProfileBase
+from src.app.schemas.profile import ProfileBaseSchema as ProfileBase
 
 class DigitalTwinChatbot:
     def __init__(self, profile: ProfileBase):

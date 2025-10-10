@@ -1,7 +1,7 @@
 import os
 import json
 from typing import Dict
-from src.app.models.profile import ProfileBase 
+from src.app.schemas.profile import ProfileBaseSchema as ProfileBase
 
 DATA_DIR = "src/profiles"
 

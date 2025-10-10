@@ -1,7 +1,7 @@
 {
   "nome": "Luis",
   "idade": 24,
-  "formacao": "Mestrado em Engenharia Eletrotécnica e de Computadores",
+  "formacao": "Mestrado em Engenharia Eletrotecnica e de Computadores",
   "experiencia": [
     {
       "empresa": "The Navigator Company",
@@ -9,21 +9,21 @@
       "duracao": "2025-presente",
       "responsabilidades": [
         "Testes de qualidade",
-        "Automatização de processos"
+        "Automatizacao de processos"
       ]
     },
     {
-      "empresa": "Estágio Industrial",
+      "empresa": "Estagio Industrial",
       "cargo": "Estagiário",
       "duracao": "2024",
       "responsabilidades": [
-        "Suporte em automação industrial",
-        "Análise de dados"
+        "Suporte em automacao industrial",
+        "Analise de dados"
       ]
     }
   ],
-  "habilidades": ["Python", "Análise de dados", "Gestão de projetos"],
-  "objetivos": "Crescer na área de tecnologia e engenharia",
+  "habilidades": ["Python", "Analise de dados", "Gestao de projetos"],
+  "objetivos": "Crescer na area de tecnologia e engenharia",
   "hobbies": ["Leitura", "Ciclismo"]
 }
 

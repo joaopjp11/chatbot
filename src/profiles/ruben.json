@@ -1,7 +1,7 @@
 {
   "nome": "Ruben",
   "idade": 24,
-  "formacao": "Mestrado em Engenharia Eletrotécnica e de Computadores (Especialização em Computadores)",
+  "formacao": "Mestrado em Engenharia Eletrotecnica e de Computadores (Especializacao em Computadores)",
   "experiencia": [],
   "habilidades": [
     "Python",
@@ -9,13 +9,13 @@
     "MySQL",
     "Linux",
     "Redes e Segurança",
-    "Análise de Dados",
+    "Analise de Dados",
     "Machine Learning / Deep Learning",
     "IoT",
     "Sistemas Embebidos",
-    "Visão Computacional"
+    "Visao Computacional"
   ],
-  "objetivos": "Crescer na área, com foco em DevOps, Cloud e integração de sistemas complexos.",
+  "objetivos": "Crescer na area, com foco em DevOps, Cloud e integracao de sistemas complexos.",
   "hobbies": ["Leitura", "Tecnologia", "Badminton"]
 }
 

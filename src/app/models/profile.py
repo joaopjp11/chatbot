@@ -1,24 +1,14 @@
-from typing import List, Dict, Any
-from pydantic import BaseModel, model_validator
+from sqlalchemy import Column, Integer, String, JSON, Text
+from src.app.database.db import Base
 
-class ProfileBase(BaseModel):
-    nome: str
-    idade: int | None = None
-    formacao: List[str] | None = None
-    experiencia: List[Dict[str, Any]] | None = None
-    habilidades: List[str] | None = None
-    objetivos: str | None = None
-    hobbies: List[str] | None = None
+class Profile(Base):
+    __tablename__ = "profiles"
 
-    @model_validator(mode="before")
-    def normalize_lists(cls, data):
-        for field in ["formacao", "habilidades", "hobbies"]:
-            if field in data and isinstance(data[field], str):
-                data[field] = [data[field]]
-        return data
-
-class ProfileCreate(ProfileBase):
-    pass
-
-class ProfileUpdate(ProfileBase):
-    pass
+    id = Column(Integer, primary_key=True, index=True)
+    nome = Column(String(100), unique=True, index=True, nullable=False)
+    idade = Column(Integer, nullable=True)
+    formacao = Column(JSON, nullable=True) 
+    experiencia = Column(JSON, nullable=True) 
+    habilidades = Column(JSON, nullable=True) 
+    objetivos = Column(Text, nullable=True)
+    hobbies = Column(JSON, nullable=True)
