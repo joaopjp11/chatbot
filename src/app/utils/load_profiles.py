@@ -1,3 +1,5 @@
+# Load profiles from JSON files.
+
 import os
 import json
 from typing import Dict

@@ -12,11 +12,11 @@ class Experience(BaseModel):
 class ProfileBaseSchema(BaseModel):
     nome: str = Field(..., min_length=1)
     idade: Optional[int] = Field(None, ge=0, le=120)
-    formacao: Optional[List[str]] = None
-    experiencia: Optional[List[Experience]] = None
-    habilidades: Optional[List[str]] = None
+    formacao: Optional[List[str]] = []
+    experiencia: Optional[List[Experience]] = []
+    habilidades: Optional[List[str]] = []
     objetivos: Optional[str] = None
-    hobbies: Optional[List[str]] = None
+    hobbies: Optional[List[str]] = []
 
     @model_validator(mode="before")
     def normalize_and_clean(cls, data: Dict[str, Any]):
